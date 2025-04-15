@@ -1,6 +1,6 @@
 defaults:
   - _self_  
-  - trainer: debug
+  - trainer: defaults
   - optimizer: adam
   - experiment: unet_convnext
   - server: local
@@ -8,8 +8,8 @@ defaults:
 data:
   n_steps_input: 4
   n_steps_output: 1
-  include_filters: ## DEBUG -> None
-    - turbulent_radiative_layer_tcool_0.03.hdf5
+  #include_filters: ## DEBUG -> None
+    #- turbulent_radiative_layer_tcool_0.03.hdf5
   normalization_type:
     _partial_: true
     _target_: the_well.data.normalization.ZScoreNormalization
@@ -18,5 +18,5 @@ data:
     _target_: the_well.data.datasets.WellDataset
 # model:
 #   gradient_checkpointing: False
-data_workers: 0  ## DEBUG -> 14
+data_workers: 14  ## DEBUG -> 14
 wandb_project_name: "the_well_convnext"

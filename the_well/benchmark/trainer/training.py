@@ -133,7 +133,7 @@ class Trainer:
         self.num_time_intervals = num_time_intervals
         self.enable_amp = enable_amp
         self.amp_type = torch.bfloat16 if amp_type == "bfloat16" else torch.float16
-        self.grad_scaler = torch.GradScaler(
+        self.grad_scaler = torch.cuda.amp.GradScaler(
             self.device.type, enabled=enable_amp and amp_type != "bfloat16"
         )
         self.is_distributed = is_distributed
